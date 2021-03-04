@@ -1,0 +1,19 @@
+{
+  "name": "ergon",
+  "version": "1.0.0",
+  "description": "Blue Collar service and invoice sender",
+  "main": "main.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "mongoose": "^5.11.18",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Here To Make Ligma",
+  "license": "ISC"
+}
