@@ -1,30 +1,34 @@
 
+//***** ROUTES ********
+// Routes that show before Login
+// Index, about, services, Login/Signup
+exports.index = (req,res) => {
+  res.render("index");
+}
+exports.about = (req,res) => {
+  res.render("about");
+}
+exports.searchServices = (req,res) => {
+  res.render("services");
+}
+exports.showSignIn = (req, res) => {
+    res.render("login");
+  }
+exports.signUpPage = (req, res) => {
+  res.render("loginSignUp");
+}
 
-
-exports.showClients = (req, res) => {
-    res.render("clients");
-  };
-  
-exports.invoices = (req, res) => {
-    res.render("Invoices");
-  };
-  
-exports.projects = (req, res) => {
-    res.render("Projects");
-  };
-
-exports.settings = (req, res) => {
-    res.render("Settings");
-};
-
-exports.calendar = (req, res) => {
-    res.render("Calendar");
-};
-
-exports.signIn  = (req, res) => {
-    res.render("signin");
-};
-
-
-
-  //home, courses, contact
+//Routes that show after Login
+//Profile, Projects, Invoice, Inbox
+exports.showProfile = (req, res) => {
+  res.render("profile");
+}
+exports.showProjects = (req, res) => {
+  res.render("myProjects");
+}
+exports.showInvoices = (req, res) => {
+  res.render("invoices");
+}
+exports.showInbox = (req, res) => {
+  res.render("inbox");
+}

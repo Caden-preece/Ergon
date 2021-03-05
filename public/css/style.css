@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
 }
-body{
-    background-image: ("images/dan-schiumarini-6o-K6uyKD2U-unsplash.jpg");
+img{
+    /* background-image: ("images/dan-schiumarini-6o-K6uyKD2U-unsplash.jpg"); */
     background-size: cover;
     background-position: center center;
     height: 100vh;

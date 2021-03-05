@@ -17,9 +17,19 @@ app.use(layouts); // Tell the app that it should use express-ejs-layouts
 app.use(express.static("public")); // Tell the app where to find static resources
 
 //***** ROUTES ********
-app.get("/", (req, res) => {
-    res.render("index");
-  });
+// Routes that show before Login
+// Index, About, Services, Sign In
+app.get("/", homeController.index),
+app.get("/about", homeController.about),
+app.get("/services", homeController.searchServices),
+app.get("/login", homeController.showSignIn),
+app.get("/loginSignUp", homeController.signUpPage);
+//Routes that show after Login
+//Profile, Projects, invoices, inbox
+app.get("/profile", homeController.showProfile),
+app.get("/myProjects", homeController.showProjects),
+app.get("/invoices", homeController.showInvoices),
+app.get("/inbox", homeController.showInbox);
 
 //   app.get("/signin", homeController.signIn);
 //   app.get("/clients", homeController.showClients);
