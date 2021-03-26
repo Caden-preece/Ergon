@@ -12,6 +12,7 @@ const express = require("express"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
   homeController = require("./controllers/homeController");
+  usersController = require("./controllers/usersController");
 
   mongoose.connect(
     "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
@@ -62,7 +63,10 @@ app.get("/about", homeController.about),
 app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
+
+//Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
+app.post("/signUp/signUp", usersController.create);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
 app.get("/profile", homeController.showProfile),
