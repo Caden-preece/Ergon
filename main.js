@@ -1,20 +1,58 @@
 "use strict";
 //Import required libraries 
 const express = require("express"),
-app = express(), 
-layouts = require("express-ejs-layouts"),
-homeController = require("./controllers/homeController");
+  app = express(),
+  //router = require("./routes/index"),
+  layouts = require("express-ejs-layouts"),
+  mongoose = require("mongoose"),
+  methodOverride = require("method-override"),
+  expressSession = require("express-session"),
+  cookieParser = require("cookie-parser"),
+  connectFlash = require("connect-flash"),
+  expressValidator = require("express-validator"),
+  passport = require("passport"),
+  homeController = require("./controllers/homeController");
 
-// Import Mongoose to work with MongoDB 
-//const mongoose = require("mongoose");
+  mongoose.connect(
+    "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
+     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
+   );
+   
+   
+   const db = mongoose.connection;
+   
+   db.once("open", () => {
+     console.log("Successfully connected to MongoDB using Mongoose!");
+   });
+   
+   app.set("port", process.env.PORT || 3000);
+   app.set("view engine", "ejs");
+   
+   app.use(express.static("public"));
+   app.use(layouts);
+   app.use(express.urlencoded({ extended: false }));
+   app.use(methodOverride("_method", {methods: ["POST", "GET"] }));
+   
+   app.use(express.json());
+   app.use(cookieParser("secret_passcode"));
+   app.use(
+     expressSession({
+       secret: "secret_passcode",
+       cookie: {
+         maxAge: 4000000
+       },
+       resave: false,
+       saveUninitialized: false
+     })
+   );
+   
+  //  app.use(passport.initialize());
+  //  app.use(passport.session());
+  //  passport.use(User.createStrategy());
+  //  passport.serializeUser(User.serializeUser());
+  //  passport.deserializeUser(User.deserializeUser());
+  //  app.use(connectFlash());
 
-// Set application variables
-app.set("view engine", "ejs"); // Use EJS
-app.set("port", process.env.PORT || 3000); // Set port to PORT env variable or 3000
-app.use(express.urlencoded({extended: false})); // Use built-in middleware to parse request body data from html forms (urlencoded)
-app.use(express.json()); // Use built-in middleware to parse request body data in JSON format
-app.use(layouts); // Tell the app that it should use express-ejs-layouts
-app.use(express.static("public")); // Tell the app where to find static resources
 
 //***** ROUTES ********
 // Routes that show before Login
@@ -24,6 +62,7 @@ app.get("/about", homeController.about),
 app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
+app.get("/signUp/signUp", homeController.signUpPage);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
 app.get("/profile", homeController.showProfile),

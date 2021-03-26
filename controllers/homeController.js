@@ -12,10 +12,11 @@ exports.searchServices = (req,res) => {
   res.render("services");
 }
 exports.showSignIn = (req, res) => {
-    res.render("login");
+    res.render("./signUp/login");
   }
 exports.signUpPage = (req, res) => {
-  res.render("loginSignUp");
+  //res.render("loginSignUp");
+  res.render("./signUp/signUp");
 }
 
 //Routes that show after Login
