@@ -1,18 +1,18 @@
 "use strict";
 
 const mongoose = require("mongoose"),
-  { Schema } = require("mongoose"),
+  { Schema } = mongoose;
   //passportLocalMongoose = require("passport-local-mongoose");
   
 
-  var usersSchema = new Schema (
+var usersSchema = new Schema (
       {
-          email: {
-            type: String,
-            required: true,
-            lowercase: true,
-            unique: true
-          },
+        email: {
+           type: String,
+           required: true,
+           lowercase: true,
+           unique: true
+         },
           password: {
             type: String, 
             required: true
@@ -23,9 +23,7 @@ const mongoose = require("mongoose"),
 
           }
       },
-      {
-        timestamps: true
-      }
+
   );
 
     usersSchema.methods.getInfo = function() {

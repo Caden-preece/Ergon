@@ -2,17 +2,18 @@
 //Import required libraries 
 const express = require("express"),
   app = express(),
-  //router = require("./routes/index"),
+  router = express.Router(),
   layouts = require("express-ejs-layouts"),
   mongoose = require("mongoose"),
+  homeController = require("./controllers/homeController"),
+  usersController = require("./controllers/usersController.js"),
   methodOverride = require("method-override"),
   expressSession = require("express-session"),
   cookieParser = require("cookie-parser"),
   connectFlash = require("connect-flash"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
-  homeController = require("./controllers/homeController");
-  usersController = require("./controllers/usersController");
+  Users = require("./models/users");
 
   mongoose.connect(
     "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
@@ -66,7 +67,7 @@ app.get("/loginSignUp", homeController.signUpPage);
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
-app.post("/signUp/signUp", usersController.create);
+app.post("/signUp/signUp/create", usersController.create);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
 app.get("/profile", homeController.showProfile),

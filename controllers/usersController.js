@@ -1,13 +1,13 @@
 
-const Users = require("./models/users"),
+const Users = require("../models/users"),
 getUsersParams = body => {
   return {
     email: body.email,
     password: body.zipCode,
     accountType: body.accountType
-  };
-  
+  }; 
 };
+
 module.exports = {
 
 
@@ -26,7 +26,7 @@ create: (req, res, next) => {
   }
 
 
-}
+};
  
 
   
