@@ -64,6 +64,7 @@ app.get("/about", homeController.about),
 app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
+app.get("/users", homeController.users);
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
