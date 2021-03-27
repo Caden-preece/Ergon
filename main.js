@@ -76,7 +76,11 @@ app.get("/services/transportation", homeController.showtransportation)
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
-app.post("/signUp/signUp/create", usersController.create);
+app.post("/users", usersController.create, homeController.users);
+
+// router.get("/users", usersController.index, usersController.indexView);
+// router.get("/users/new", usersController.new);
+// router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
 app.get("/profile", homeController.showProfile),
