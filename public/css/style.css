@@ -30,6 +30,7 @@ wrapper{
 nav{
     width: 100%;
     background-color:white;
+    z-index:+4;
 }
 
 nav p{
