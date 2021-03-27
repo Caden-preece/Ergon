@@ -64,6 +64,7 @@ app.get("/about", homeController.about),
 app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
+app.get("/users", homeController.users);
 
 //begining services
 app.get("/services/construction", homeController.showconstruction);
