@@ -2,6 +2,27 @@
 //***** ROUTES ********
 // Routes that show before Login
 // Index, about, services, Login/Signup
+
+//begining of services routes
+exports.showconstruction = (req, res) => {
+  res.render("./services/construction");
+}
+exports.showelectrician = (req, res) => {
+  res.render("./services/electrician");
+}
+exports.showmechanic = (req, res) => {
+  res.render("./services/mechanic");
+}
+exports.showplumbing = (req, res) => {
+  res.render("./services/plumbing");
+}
+exports.showtransportation = (req, res) => {
+  res.render("./services/transportation")
+}
+// //ending of services routes
+
+
+
 exports.index = (req,res) => {
   res.render("index");
 }

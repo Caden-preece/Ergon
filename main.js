@@ -65,6 +65,15 @@ app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
 
+//begining services
+app.get("/services/construction", homeController.showconstruction);
+app.get("/services/electrician", homeController.showelectrician);
+app.get("/services/mechanic", homeController.showmechanic);
+app.get("/services/plumbing", homeController.showplumbing);
+app.get("/services/transportation", homeController.showtransportation)
+
+
+
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/signUp/signUp/create", usersController.create);
