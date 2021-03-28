@@ -33,10 +33,7 @@ var userSchema = new Schema (
     return `email: ${this.email} password: ${this.password} accountType: ${this.accountType}`;
   };
   
-<<<<<<< HEAD:models/user.js
   module.exports = mongoose.model("User", userSchema);
-=======
-  module.exports = mongoose.model("Users", usersSchema);
   //end user schema
 
   //begin buisness schema
@@ -56,7 +53,6 @@ var userSchema = new Schema (
       }, 
       accountType: {
         type: String,
->>>>>>> 10f02f319a9d5cf2f41a5a9b968b4a354c84d308:models/users.js
 
       },
       location: {
@@ -79,4 +75,4 @@ var userSchema = new Schema (
     return `email: ${this.email} password: ${this.password} accountType: ${this.accountType} location: ${this.location} name: ${this.name} service: ${this.service}`;
   };
   
-  module.exports = mongoose.model("Users", usersSchema);
+  module.exports = mongoose.model("User", userSchema);
