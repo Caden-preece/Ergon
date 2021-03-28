@@ -2,7 +2,7 @@
 
 <wrapper>
   
-<form action="/users/:id/update" method="post">
+<form action="<%=`/users/${user._id}/update?_method=PUT`%>" method="post">
     <h2 class="form-signin-heading">Create an Account:</h2>
 
     <label for="email">Email</label>
