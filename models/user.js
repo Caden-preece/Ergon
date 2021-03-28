@@ -5,7 +5,7 @@ const mongoose = require("mongoose"),
   //passportLocalMongoose = require("passport-local-mongoose");
   
 
-var usersSchema = new Schema (
+var userSchema = new Schema (
       {
         email: {
            type: String,
@@ -14,7 +14,8 @@ var usersSchema = new Schema (
            unique: true
          },
           password: {
-            type: String, 
+            type: String,
+            required: true 
             
           },
           accountType: {
@@ -26,10 +27,10 @@ var usersSchema = new Schema (
 
   );
 
-    usersSchema.methods.getInfo = function() {
+    userSchema.methods.getInfo = function() {
     return `email: ${this.email} password: ${this.password} accountType: ${this.accountType}`;
   };
   
-  module.exports = mongoose.model("Users", usersSchema);
+  module.exports = mongoose.model("User", userSchema);
 
   

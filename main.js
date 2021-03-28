@@ -13,7 +13,7 @@ const express = require("express"),
   connectFlash = require("connect-flash"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
-  Users = require("./models/users");
+  Users = require("./models/user");
 
   mongoose.connect(
     "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
@@ -64,7 +64,7 @@ app.get("/about", homeController.about),
 app.get("/services", homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
-app.get("/users", homeController.users);
+app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
 app.get("/services/construction", homeController.showconstruction);
@@ -77,7 +77,7 @@ app.get("/services/transportation", homeController.showtransportation)
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
-app.post("/users", usersController.create, homeController.users);
+app.post("/users", usersController.create, usersController.index, usersController.indexView);
 
 // router.get("/users", usersController.index, usersController.indexView);
 // router.get("/users/new", usersController.new);

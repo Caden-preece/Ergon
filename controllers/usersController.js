@@ -1,9 +1,9 @@
 
-const Users = require("../models/users"),
-getUsersParams = body => {
+const User = require("../models/user"),
+getUserParams = body => {
   return {
     email: body.email,
-    password: body.zipCode,
+    password: body.password,
     accountType: body.accountType
   }; 
 };
@@ -12,15 +12,15 @@ module.exports = {
 
 
 create: (req, res, next) => {
-    let usersParams = getUsersParams(req.body);
-    Users.create(usersParams)
-      .then(users => {
+    let userParams = getUserParams(req.body);
+    User.create(userParams)
+      .then(user => {
         res.locals.redirect = "/users";
-        res.locals.user = users;
+        res.locals.user = user;
         next();
       })
       .catch(error => {
-        console.log(`Error saving subscriber: ${error.message}`);
+        console.log(`Error saving user: ${error.message}`);
         next(error);
       });
   },
@@ -33,9 +33,9 @@ redirectView: (req, res, next) => {
 
 
 index: (req, res, next) => {
-    Users.find()
-        .then(users => {
-        res.locals.users = users;
+    User.find()
+        .then(user => {
+        res.locals.user = user;
          next();
          })
         .catch(error => {
@@ -45,7 +45,7 @@ index: (req, res, next) => {
     },
 
 indexView: (req, res) => {
-    res.render("/users");
+    res.render("users");
     },
 
 show: (req, res, next) => {
@@ -68,7 +68,7 @@ showView: (req, res) => {
 }
 
 exports.saveUser = (req, res, next) => {          
-    let newUser = new Users({
+    let newUser = new User({
       email: req.body.email,
       password: req.body.password,
       accountType: req.body.accountType
