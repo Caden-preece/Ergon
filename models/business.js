@@ -11,17 +11,12 @@ var busisnessSchema = new Schema (
     {
     email: {
       type: String,
-
       lowercase: true,
-      unique: true
+      unique: true,
+      
       },
-      password: {
-        type: String,
-
-      }, 
       accountType: {
-        type: String,
-
+        type: String
       },
       location: {
         type: String,
