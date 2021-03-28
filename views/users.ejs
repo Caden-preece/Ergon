@@ -31,9 +31,19 @@
         </a>
       </td>
       <td>
-          <a href="<%= '/users/${user._id}' %>">
+          <% if(user.accountType == "Business"){ %> 
+
+            <a href="<%='/users/${user._id}/createBusinessProfile'%> ">
             <%= user.accountType %>
-          </a> 
+           
+        </a>
+        <% } else { %> 
+            <a href="/users">
+                <% user.accountType %>
+            </a>
+            <% } %>
+         
+
       </td>
       <td>
         <a href="<%=`users/${user._id}/edit`%>">
