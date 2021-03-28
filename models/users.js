@@ -37,8 +37,6 @@ var usersSchema = new Schema (
 
   //begin buisness schema
 
-  const mongoose = require(),
-    { Schema } = mongoose;
 
   var buisnessSchema = new Schema (
     {
