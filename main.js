@@ -78,6 +78,7 @@ app.get("/services/transportation", homeController.showtransportation)
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/users", usersController.create, usersController.index, usersController.indexView);
+app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 
 // router.get("/users", usersController.index, usersController.indexView);
 // router.get("/users/new", usersController.new);
