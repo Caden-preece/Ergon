@@ -80,6 +80,10 @@ app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/users", usersController.create, usersController.index, usersController.indexView);
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 
+//edit
+app.get("/users/:id/edit", usersController.edit);
+app.post("/users/:id/update", usersController.update, usersController.redirectView);
+
 // router.get("/users", usersController.index, usersController.indexView);
 // router.get("/users/new", usersController.new);
 // router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
