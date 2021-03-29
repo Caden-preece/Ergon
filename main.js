@@ -81,7 +81,11 @@ app.post("/users", usersController.create, usersController.index, usersControlle
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 
 //Show & Create Business Profile
-app.get("/user/:id/createBusinessProfile",businessController.getCreatePage);
+// app.get("/user/:id/createBusinessProfile",businessController.getCreatePage);
+
+//edit
+router.get("/users/:id/edit", usersController.edit);
+router.put("/users/:id/update", usersController.update, usersController.redirectView);
 
 
 // router.get("/users", usersController.index, usersController.indexView);
