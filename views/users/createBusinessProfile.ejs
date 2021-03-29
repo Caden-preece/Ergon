@@ -2,11 +2,11 @@
 
 <wrapper>
 
-<form action="/users/${user._id}/createBusinessProfile" method="post">
+<form action="/users/createBusinessProfile/${user._id}" method="post">
     <h2 class="form-signin-heading">Create a Business Profile:</h2>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="inputEmail" placeholder="<%user.email%>" autofocus>
+    <input type="text" name="email" id="inputEmail" value = "<%= user.email %>" placeholder="Email" autofocus>
 
 </form>
 </wrapper>
