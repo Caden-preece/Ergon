@@ -81,6 +81,8 @@ app.get("/services/transportation", homeController.showtransportation)
 app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/users", usersController.create, usersController.index, usersController.indexView);
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
+app.get("/users/:id/edit", usersController.edit);
+app.put("/users/:id/update", usersController.update, usersController.redirectView);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.getCreatePage);

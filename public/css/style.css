@@ -87,3 +87,24 @@ nav ul li ul li a {
 nav ul li ul li a:hover{
     background-color: #f3f3f3
 }
+
+td {
+    padding:25px
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+input, select {
+    width:33%;
+    padding:12px 20px;
+    box-sizing: border-box;
+    margin: 8px 0;
+
+}
+
+label {
+    padding-right: 10%;
+}
