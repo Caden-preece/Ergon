@@ -1,12 +1,14 @@
 <img src="/images/homeSlider.jpg" alt="">
 
 <wrapper>
-
-<form action="/users/${user._id}/createBusinessProfile" method="post">
+<p>*Note* This doesn't work quite how we want it to yet. We're meeting with Hayden Monday morning to review and discuss. </p>
+<br>
+<p>It should enable the user to create a business profile based on the email they used to signup. The id in the user database would be the primary key in the "business" db.</p>
+<form action="/users/createBusinessProfile/${user._id}" method="post">
     <h2 class="form-signin-heading">Create a Business Profile:</h2>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="inputEmail" placeholder="<%user.email%>" autofocus>
+    <input type="text" name="email" id="inputEmail" placeholder="Email" autofocus>
 
 </form>
 </wrapper>

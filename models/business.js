@@ -7,13 +7,13 @@ const mongoose = require("mongoose"),
 //begin buisness schema
 
 
-var busisnessSchema = new Schema (
+var businessSchema = new Schema (
     {
     email: {
       type: String,
       lowercase: true,
       unique: true,
-      
+
       },
       accountType: {
         type: String
@@ -35,7 +35,7 @@ var busisnessSchema = new Schema (
 );
 
 
-busisnessSchema.methods.getInfo = function() {
+businessSchema.methods.getInfo = function() {
   return `email: ${this.email} password: ${this.password} accountType: ${this.accountType} location: ${this.location} name: ${this.name} service: ${this.service}`;
 };
   

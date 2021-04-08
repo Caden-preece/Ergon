@@ -9,8 +9,7 @@
 <!-- Changes after -->
 <wrapper>
 <h2 class="center">Users Table</h2>
-<div class="center">
-  <a class="button" href="/users/new">Create User</a>
+
 
 </div>
 <table class="table">
@@ -31,17 +30,20 @@
         </a>
       </td>
       <td>
-          <% if(user.accountType == "Business"){ %> 
+          <% if(user.accountType === "Business"){ %> 
 
-            <a href="<%='/users/${user._id}/createBusinessProfile'%> ">
+            <a href="<%='/users/createBusinessProfile/${user._id}'%> ">
             <%= user.accountType %>
            
         </a>
         <% } else { %> 
-            <a href="/users">
-                <% user.accountType %>
-            </a>
+            <%= user.accountType %>
             <% } %>
+
+        
+                
+            
+            
          
 
       </td>

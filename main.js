@@ -7,6 +7,7 @@ const express = require("express"),
   mongoose = require("mongoose"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController.js"),
+  businessController = require("./controllers/businessController.js"),
   methodOverride = require("method-override"),
   expressSession = require("express-session"),
   cookieParser = require("cookie-parser"),
@@ -14,6 +15,7 @@ const express = require("express"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
   Users = require("./models/user");
+  
 
   mongoose.connect(
     "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
@@ -79,13 +81,16 @@ app.get("/services/transportation", homeController.showtransportation)
 app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/users", usersController.create, usersController.index, usersController.indexView);
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
+app.get("/users/:id/edit", usersController.edit);
+app.put("/users/:id/update", usersController.update, usersController.redirectView);
 
 //Show & Create Business Profile
-// app.get("/user/:id/createBusinessProfile",businessController.getCreatePage);
 
-//edit
 router.get("/users/:id/edit", usersController.edit);
 router.put("/users/:id/update", usersController.update, usersController.redirectView);
+
+app.get("/users/createBusinessProfile/:id",businessController.getCreatePage);
+
 
 
 // router.get("/users", usersController.index, usersController.indexView);
