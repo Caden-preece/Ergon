@@ -88,6 +88,7 @@ app.put("/users/:id/update", usersController.update, usersController.redirectVie
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
 
 
+
 // router.get("/users", usersController.index, usersController.indexView);
 // router.get("/users/new", usersController.new);
 // router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
