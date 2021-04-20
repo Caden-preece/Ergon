@@ -40,6 +40,9 @@ var businessSchema = new Schema (
         type: Array,
 
       },
+      listing: {
+        type: String,
+      }
 
     }
 );
