@@ -85,11 +85,7 @@ app.get("/users/:id/edit", usersController.edit);
 app.put("/users/:id/update", usersController.update, usersController.redirectView);
 
 //Show & Create Business Profile
-
-router.get("/users/:id/edit", usersController.edit);
-router.put("/users/:id/update", usersController.update, usersController.redirectView);
-
-app.get("/users/createBusinessProfile/:id",businessController.getCreatePage);
+app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
 
 
 
