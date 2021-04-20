@@ -1,0 +1,38 @@
+Project: Blue Collar Freelance App 
+
+Team Name: H ere T o M ake L igma 
+
+Team: Coen Haroldsen, Annie Beck, Caden Preece 
+
+
+Milestone3 
+28 March 2021 
+Progress Since Last Milestone 
+We have finished all of the routes to our pages as well as finished all of the formatting for the pages. We connected our site to mongo db and can push and pull information from the site. 
+We created user and business schemas for making accounts which can be pushed to the database, and businesses can make posts.  
+Problems Encountered/Questions: 
+Struggled a bit with figuring out how to pull info down from mongo db, and are meeting with Hayden later today to figure that out.  
+We struggled using git hub with multiple users while updating the same file for a bit. We would sometimes stash our files, 
+but since they weren’t up to date it wouldn’t let use push, but once we figured that out it worked great. 
+
+ 
+
+
+Milestone 2 
+
+4 March, 2021 
+
+Progress Since Last Milestone: 
+
+Since the last milestone, we have made great progress toward our final project. We have set up a mongo db database, and we have a firm idea of what we are going to do. We decided to make our own user interface instead of following a template, and we are happy with the way it’s looking. We had chosen a template to use, but it was very complex and written in another language. We decided to instead write our own code, and we are happy with the way it is looking. It is very basic as of right now, but we felt it would be better to leave the design and layout open for right now rather than setting it in stone. We have also implemented routing and navigation, and just have a few details to iron out there. 
+
+Problems Encountered/Questions: 
+
+● We have struggled a bit with communication, about what in all our app will do. This is probably something that we should have cleared up in D1. We were able to get past this through the use of the user interface diagram, were we hashed out our conflicting views of what the project was. 
+
+● We were having difficulty with the premade template, and were having trouble understanding the files. We opted to make our own template. Even though this may require a bit more upfront work we think that it will pay off because we will have a complete understanding of the user interface, and can more easily make changes. 
+
+● We have struggled getting all of the EJS routing figured, but have figured it out. 
+
+ 
+

@@ -1,0 +1,20 @@
+<img src="/images/homeSlider.jpg" alt="">
+
+<wrapper>
+  
+<form action="<%=`/users/${user._id}/update?_method=PUT`%>" method="post">
+    <h2 class="form-signin-heading">Create an Account:</h2>
+
+    <label for="email">Email</label>
+    <input type="text" name="email" id="inputEmail" value = "<%= user.email %>" placeholder="Email" autofocus>
+
+    <label for="password">Password</label>
+    <input type="text"name="password" id="inputPassword" value="<%= user.password %>" placeholder="Password" autofocus>
+    
+    <label for="accountType">Account Type</label>
+    <input type="text" name="accountType" id="inputAccountType" value="<%= user.accountType %>"placeholder="Business / Client" autofocus>
+    <!-- Confirm Password -->
+
+    <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+  </form>
+</wrapper>
