@@ -1,10 +1,13 @@
-const user = require("../models/user");
+"use strict";
 
-const User = require("../models/user"),
-getUserParams = body => {
+const {check, validationResult} = require("express-validator");
+const User = require("../models/user");
+const passport = require("passport");
+
+
+const getUserParams = body => {
   return {
     email: body.email,
-    password: body.password,
     accountType: body.accountType
   }; 
 };
@@ -12,19 +15,35 @@ getUserParams = body => {
 module.exports = {
 
 
-create: (req, res, next) => {
-    let userParams = getUserParams(req.body);
-    User.create(userParams)
-      .then(user => {
-        res.locals.redirect = "/users";
-        res.locals.user = user;
+  create: (req, res, next) => {
+    if (req.skip) next();
+    let newUser = new User(getUserParams(req.body));
+    User.register(newUser, req.body.password, (e, user) => {
+      if (user) {
+        //req.flash("success", `${user.firstName}'s account created successfully!`);
+        res.locals.redirect = "/";
         next();
-      })
-      .catch(error => {
-        console.log(`Error saving user: ${error.message}`);
-        next(error);
-      });
+      } else {
+        //req.flash("error", `Failed to create user account because: ${e.message}.`);
+        res.locals.redirect = "/signup/signup";
+        next();
+      }
+    });
   },
+
+  // create: (req, res, next) => {
+  //   let userParams = getUserParams(req.body);
+  //   User.create(userParams)
+  //     .then(user => {
+  //       res.locals.redirect = "/users";
+  //       res.locals.user = user;
+  //       next();
+  //     })
+  //     .catch(error => {
+  //       console.log(`Error saving user: ${error.message}`);
+  //       next(error);
+  //     });
+  // },
 
 redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
