@@ -15,28 +15,34 @@ var businessSchema = new Schema (
       unique: true,
 
       },
-      accountType: {
-        type: String
-      },
-      location: {
+      
+      
+      companyName: {
         type: String,
 
       },
-      name: {
+
+      city: {
         type: String,
 
+      },
+
+      state: {
+        type: String,
+      },
+
+      zipCode: {
+        type: Number,
+        max: 99999,
+        min:10000,
       },
       service: {
-        type: String,
+        type: Array,
 
       },
 
     }
 );
 
-
-businessSchema.methods.getInfo = function() {
-  return `email: ${this.email} password: ${this.password} accountType: ${this.accountType} location: ${this.location} name: ${this.name} service: ${this.service}`;
-};
   
 module.exports = mongoose.model("Business", businessSchema);
