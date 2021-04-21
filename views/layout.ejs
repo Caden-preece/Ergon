@@ -4,13 +4,14 @@
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
+<body>
 <h1> ERGON </h1>
+<h2> Bringing Workers Together Since 2021</h2>
 
     <nav>
-        
             <a href="/">Home</a> &nbsp;
             <a href="/about">About</a> &nbsp;
-            <a href="/services">Search Services</a> &nbsp;
+            <a href="/services">Services</a> &nbsp;
                 <!-- <ul>
                     <li><a href="/services/construction">Construction</a></li>
                     <li><a href="/services/electrician">Electrician</a></li>
@@ -19,9 +20,7 @@
                     <li><a href="/services/transportation">Transportation</a></li>
                     <li><a href="#">Coming Soon</a></li>
                 </ul> -->
-            
-            
-            
+
             <a href="/login">Login/Sign Up</a>&nbsp;
             <% if (currentUser) { %> 
                 <% if (currentUser.isAdmin) { %> 
@@ -36,6 +35,8 @@
             <li><a href="invoices">Invoices</a></li> -->
     </nav>
 
+    <%- body %>
+</body>
 </html>
-<%- body %>
+
 

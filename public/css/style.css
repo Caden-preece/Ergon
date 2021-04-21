@@ -2,20 +2,25 @@
     margin: 0;
     padding: 0;
 }
-img{
-    background-image: ("images/dan-schiumarini-6o-K6uyKD2U-unsplash.jpg");
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-}
+
 h1 {
     font-size: 60px;
     text-align: center;
     color:rgb(2, 2, 36) ;
-    background-color: rgb(247, 232, 232);
+    background-color: rgb(247, 242, 242);
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 270;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(247, 242, 242);
+    text-align: center;
+    padding-bottom: 20px;
+    color: rgb(2, 2, 36);
+    font-size: 20px;
+    font-weight: 100;
 
 }
 /* header {
@@ -23,9 +28,13 @@ h1 {
 } */
 
 nav{
-    background-color:white;
+    background-color: rgb(247, 242, 242);
     text-align: center;
     padding-bottom: 20px;
+    border-bottom: 2px solid rgb(2, 2, 36);
+    height: 45px;
+    padding-top: 15px;
+    white-space: nowrap;
     
 }
 
@@ -36,24 +45,32 @@ nav a {
     padding: 10px;
     border-radius: 7px;
     font-family: 'Roboto', sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: 150;
+    text-decoration: none;
 }
-
+body {
+    background-color: rgb(247, 242, 242);
+    text-align: center;
+}
+img {
+    height: 400px;
+    width: 600px;
+    padding-left: 25px;
+    padding-top: 25px;
+    text-align: left;
+}
 #wrapper{
     font-family: 'Roboto', sans-serif;
     padding-top: 50px;
     padding-left: 50px;
-    border-top: 4px solid;
-    border-bottom: 4px solid;
-    border-right: 4px solid;
-    border-left: 4px solid;
-    border-color: black;
     height: 80%;
     width: 60%;
     top: 20%;
     left: 20%;
-    background: tan;
+    
 }
-
 
 
 td {
