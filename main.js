@@ -99,6 +99,7 @@ app.post("/loginPage", usersController.authenticate);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
+app.post("/users/createBusinessProfile", businessController.create);
 
 
 
