@@ -108,9 +108,9 @@ app.post("/users/createBusinessProfile", businessController.create);
 // router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
-app.get("/profile", homeController.showProfile),
-app.get("/myProjects", homeController.showProjects),
-app.get("/invoices", homeController.showInvoices),
+app.get("/:id", usersController.show, usersController.showView);
+app.get("/myProjects", homeController.showProjects);
+app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
 //   app.get("/signin", homeController.signIn);

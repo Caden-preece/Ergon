@@ -23,9 +23,12 @@
             
             
             <a href="/login">Login/Sign Up</a>&nbsp;
+            <% if (currentUser) { %> 
+                <% if (currentUser.isAdmin) { %> 
             <a href="/users">Users</a>
+            <% }} %> 
             <% if (loggedIn) { %>
-            <a href="/profile">Profile</a>
+            <a href="<%= `/${currentUser._id}` %>">Profile</a>
             <% } %> 
             <!-- <li><a href="myProjects">My Projects</a></li>
             <li><a href="profile">Profile</a></li>
