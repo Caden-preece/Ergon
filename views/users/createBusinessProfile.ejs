@@ -4,11 +4,11 @@
 <p>*Note* This doesn't work quite how we want it to yet. We're meeting with Hayden Monday morning to review and discuss. </p>
 <br>
 <p>It should enable the user to create a business profile based on the email they used to signup. The id in the user database would be the primary key in the "business" db.</p>
-<form action="/users/createBusinessProfile/<%=user._id%>" method="post">
+<form action="/users/createBusinessProfile" method="post">
     <h2 class="form-signin-heading">Create a Business Profile:</h2>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="inputEmail" disabled value = "<%=user.email%>" placeholder="Email" autofocus>
+    <input type="text" name="email" id="email" value = "<%=user.email%>" placeholder="Email" autofocus>
     <br>
     <label for="companyName">Company name</label>
     <input type="text" name="companyName" id="companyName" placeholder = "Company Name" autofocus>
@@ -30,5 +30,6 @@
     <input type="checkbox" name="service" value="Mechanical" >Mechanical
     <input type="checkbox" name="service" value="Transportation" >Transportation
     </ul>
+    <br/><button type="submit">Create</button>
 </form>
 </wrapper>

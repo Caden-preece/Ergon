@@ -31,19 +31,6 @@ module.exports = {
     });
   },
 
-  // create: (req, res, next) => {
-  //   let userParams = getUserParams(req.body);
-  //   User.create(userParams)
-  //     .then(user => {
-  //       res.locals.redirect = "/users";
-  //       res.locals.user = user;
-  //       next();
-  //     })
-  //     .catch(error => {
-  //       console.log(`Error saving user: ${error.message}`);
-  //       next(error);
-  //     });
-  // },
 
 redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
@@ -136,25 +123,21 @@ update: (req, res, next) => {
     });
 },
 
+authenticate: passport.authenticate("local", {
+  failureRedirect: "/login",
+  failureFlash: "Failed to login.",
+  successRedirect: "/",
+  successFlash: `Signed in as ${User.email} !`
+}),
+
+validate: async (req, res, next) => {                                    
+  await check("email").normalizeEmail({
+    }).trim().run(req);                                                     
+  await check("email", "Email is invalid").isEmail().run(req);                                  
+  await check("password", "Password cannot be empty").notEmpty().run(req); 
+
+},
+
+
 }
 
-
-exports.saveUser = (req, res, next) => {          
-    let newUser = new User({
-      email: req.body.email,
-      password: req.body.password,
-      accountType: req.body.accountType
-    });                                             
-    newUser
-    .save()
-    .then(() => {         
-      if (error) res.send(error);
-      res.render("users");
-    })
-    .catch(error => {
-        res.send(error);
-      });
-  };;
- 
-
-  

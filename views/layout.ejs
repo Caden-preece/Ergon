@@ -19,14 +19,20 @@
                     <li><a href="/services/transportation">Transportation</a></li>
                     <li><a href="#">Coming Soon</a></li>
                 </ul> -->
-            <a href="/login">Login/Sign Up</a> &nbsp;
-            <a href="/users">Users</a> &nbsp;
+            
+            
+            
+            <a href="/login">Login/Sign Up</a>&nbsp;
+            <a href="/users">Users</a>
+            <% if (loggedIn) { %>
+            <a href="/profile">Profile</a>
+            <% } %> 
             <!-- <li><a href="myProjects">My Projects</a></li>
             <li><a href="profile">Profile</a></li>
             <li><a href="inbox">Inbox</a></li>
             <li><a href="invoices">Invoices</a></li> -->
     </nav>
-    
+
 </html>
 <%- body %>
 

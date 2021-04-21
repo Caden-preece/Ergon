@@ -48,4 +48,4 @@ var businessSchema = new Schema (
 );
 
   
-module.exports = mongoose.model("Business", businessSchema);
+module.exports = mongoose.model("Business", businessSchema, "businesses");
