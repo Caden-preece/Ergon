@@ -1,5 +1,55 @@
 
 <img src="/images/homeSlider.jpg" alt="">
 <wrapper>
-    Bring Workers Together Since 2021
-</wrapper>git
+    <h2 class="center">Users Table</h2>
+    
+    
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Account Type</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% user.forEach(user => { %>
+        <tr>
+          <td>
+            <a href="<%= `/users/${user._id}` %>">
+              <%= user.email %> 
+            </a>
+          </td>
+          <td>
+              <% if(user.accountType === "Business"){ %> 
+    
+                <a href="/users/createBusinessProfile/<%=user._id%> ">
+                <%= user.accountType %>
+               
+            </a>
+            <% } else { %> 
+                <%= user.accountType %>
+                <% } %>
+    
+            
+                    
+                
+                
+             
+    
+          </td>
+          <td>
+            <a href="<%=`users/${user._id}/edit`%>">
+              Edit
+            </a>
+          </td>
+          <td>
+            <a href="<%= `users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')" a>Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    </wrapper>
