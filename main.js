@@ -5,38 +5,39 @@ const express = require("express"),
   router = express.Router(),
   layouts = require("express-ejs-layouts"),
   mongoose = require("mongoose"),
-  homeController = require("./controllers/homeController"),
-  usersController = require("./controllers/usersController.js"),
-  businessController = require("./controllers/businessController.js"),
   methodOverride = require("method-override"),
   expressSession = require("express-session"),
   cookieParser = require("cookie-parser"),
   connectFlash = require("connect-flash"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
-  Users = require("./models/user");
   
-
+//CONTROLLERS
+  homeController = require("./controllers/homeController"),
+  usersController = require("./controllers/usersController"),
+  businessController = require("./controllers/businessController"),
+//MODELS
+  User = require("./models/user"),
+  Business = require("./models/business");
+  
+//Connect to Atlas
   mongoose.connect(
     "mongodb+srv://cadenpreecE:caDen@cluster0.61xxy.mongodb.net/Freelance_DB?retryWrites=true&w=majority", //Atlas connection string here
      { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
    );
    
-   
    const db = mongoose.connection;
-   
    db.once("open", () => {
      console.log("Successfully connected to MongoDB using Mongoose!");
    });
    
+   // App Settings
    app.set("port", process.env.PORT || 3000);
    app.set("view engine", "ejs");
-   
    app.use(express.static("public"));
    app.use(layouts);
    app.use(express.urlencoded({ extended: false }));
    app.use(methodOverride("_method", {methods: ["POST", "GET"] }));
-   
    app.use(express.json());
    app.use(cookieParser("secret_passcode"));
    app.use(
@@ -50,13 +51,21 @@ const express = require("express"),
      })
    );
    
-  //  app.use(passport.initialize());
-  //  app.use(passport.session());
-  //  passport.use(User.createStrategy());
-  //  passport.serializeUser(User.serializeUser());
-  //  passport.deserializeUser(User.deserializeUser());
-  //  app.use(connectFlash());
+   //Configure Passport
+   app.use(passport.initialize());
+   app.use(passport.session());
+   passport.use(User.createStrategy());
+   passport.serializeUser(User.serializeUser());
+   passport.deserializeUser(User.deserializeUser());
+   app.use(connectFlash());
 
+// Middleware function to attach user and flash info to res.locals for easy access in views
+app.use((req, res, next) => {
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 //***** ROUTES ********
 // Routes that show before Login
@@ -83,6 +92,10 @@ app.post("/users", usersController.create, usersController.index, usersControlle
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 app.get("/users/:id/edit", usersController.edit);
 app.put("/users/:id/update", usersController.update, usersController.redirectView);
+
+//Show Login and actually Log in
+app.get("/signUp/loginPage", homeController.showLogin);
+app.post("/loginPage", usersController.authenticate);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);

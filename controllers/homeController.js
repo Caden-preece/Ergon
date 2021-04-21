@@ -42,6 +42,11 @@ exports.signUpPage = (req, res) => {
 exports.users = (req, res) => {
   res.render("users");
 }
+
+exports.showLogin = (req, res) => {
+  res.render("./signUp/loginPage");
+}
+
 //Routes that show after Login
 //Profile, Projects, Invoice, Inbox
 exports.showProfile = (req, res) => {
