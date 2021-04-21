@@ -3,8 +3,18 @@
 <div> 
     <img src="images/homeSlider.jpg" alt="">
     <wrapper>
-        Bring Workers Together Since 2021
-        <br> 
-        Needs Authentication
+        <table class="table">
+            <tr>
+              <th>Email</th>
+              <td>
+                <%= user.email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= user.accountType %>
+              </td>
+            </tr>
+          </table>
     </wrapper>
 </div>
