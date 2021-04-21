@@ -9,19 +9,24 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 var userSchema = new Schema (
       {
-        email: {
-           type: String,
-           
-           lowercase: true,
-           unique: true
-         }, 
-            
-          accountType: {
-              type: String,
-              
+    email: {
+        type: String,
+        
+        lowercase: true,
+        unique: true
+      }, 
+        
+      accountType: {
+          type: String,
+          
 
-          }
-      },
+      }, 
+      isAdmin: {
+        type: Boolean,
+        default: false
+      }
+
+      }
 
   );
 

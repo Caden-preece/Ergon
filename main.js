@@ -99,7 +99,7 @@ app.post("/loginPage", usersController.authenticate);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
-app.post("/users/createBusinessProfile", businessController.create);
+app.post("/users/createBusinessProfile", businessController.create, usersController.show, usersController.showView);;
 
 
 
@@ -108,9 +108,9 @@ app.post("/users/createBusinessProfile", businessController.create);
 // router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
 //Routes that show after Login
 //Profile, Projects, invoices, inbox
-app.get("/profile", homeController.showProfile),
-app.get("/myProjects", homeController.showProjects),
-app.get("/invoices", homeController.showInvoices),
+app.get("/:id", usersController.show, usersController.showView);
+app.get("/myProjects", homeController.showProjects);
+app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
 //   app.get("/signin", homeController.signIn);

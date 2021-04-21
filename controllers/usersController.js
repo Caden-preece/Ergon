@@ -38,6 +38,22 @@ redirectView: (req, res, next) => {
     else next()
     },
 
+show: (req, res, next) => {
+    let userId = req.params.id;
+    User.findById(userId)
+      .then(user => {
+        res.locals.user = user;
+        next();
+      })
+      .catch(error => {
+        console.log(`Error fetching user by ID: ${error.message}`);
+        next(error);
+      });
+  },
+
+showView: (req, res) => {
+  res.render("profile");
+},
 
 index: (req, res, next) => {
     User.find()
@@ -55,22 +71,7 @@ indexView: (req, res) => {
     res.render("users");
     },
 
-show: (req, res, next) => {
-    let userId = req.params.id;
-    Users.findById(userId)
-        .then(user => {
-        res.locals.user = user;
-        next();
-         })
-        .catch(error => {
-        console.log(`Error fetching user by ID: ${error.message}`);
-        next(error);
-         });
-      },
     
-showView: (req, res) => {
-    res.render("users/show");
-    },
 
 delete: (req, res, next) => {
         let userId = req.params.id;

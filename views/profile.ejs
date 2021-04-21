@@ -1,7 +1,7 @@
-<img src="/images/homeSlider.jpg" alt="">
+<!-- <img src="/images/homeSlider.jpg" alt=""> -->
 
 <div> 
-    <img src="images/homeSlider.jpg" alt="">
+    <!-- <img src="images/homeSlider.jpg" alt=""> -->
     <wrapper>
         <table class="table">
             <tr>
@@ -11,10 +11,17 @@
               </td>
             </tr>
             <tr>
+              <th> Account Type</th>
               <td>
                 <%= user.accountType %>
               </td>
             </tr>
           </table>
+          <% if (user.accountType == "Business") { %> 
+            <a href="<%= `/users/createBusinessProfile/${user._id}` %> ">
+            <button href="<%= `/users/createBusinessProfile/${user._id}` %> ">Create Business Profile</button>
+          </a>
+            <% } %> 
+        
     </wrapper>
 </div>
