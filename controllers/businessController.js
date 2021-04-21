@@ -41,8 +41,7 @@ show: (req, res, next) => {
 
   create: (req, res, next) => {
     Business.create(req.body).then((result) => {
-        //console.log(result);
-        res.render("profile");
+        console.log(result);
     }).catch((err) => {
         next(err);
     });
