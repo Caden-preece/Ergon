@@ -25,10 +25,11 @@ var userSchema = new Schema (
         type: Boolean,
         default: false
       },
-      hasBusinessProfile:{
-        type: Boolean,
-        default: false
-      }
+      businessProfileId:{
+        type: Schema.Types.ObjectId,
+        ref: "Business",
+        default: 1
+      },
       
 
       }

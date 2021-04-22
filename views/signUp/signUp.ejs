@@ -10,14 +10,16 @@
     <br>
 
     <label for="password">Password:</label>
-    <input type="text" name="password" id="inputPassword" placeholder="Password" autofocus>
+    <input type="password" name="password" id="inputPassword" placeholder="Password" autofocus>
     <br>
     
     <label for="accountType">Account Type:</label>
-    <select name="accountType" id="inputAccountType" placeholder="Business / Client" autofocus>
+    <select name="accountType" id="accountType" placeholder="Business / Client" autofocus>
       <option value="Business">Business</option>
       <option value="Client">Client</option>
       </select>
+    <label for="businessProfileId"></label>
+    <input type="hidden" name="businessProfileId" id="businessProfileId" value = "undefined"  autofocus>
     <br>
     <!-- Confirm Password -->
 

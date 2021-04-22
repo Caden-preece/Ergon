@@ -21,11 +21,12 @@ module.exports = {
     User.register(newUser, req.body.password, (e, user) => {
       if (user) {
         //req.flash("success", `${user.firstName}'s account created successfully!`);
-        res.locals.redirect = "/";
+        res.locals.redirect = "/signUp/loginPage";
         next();
       } else {
         //req.flash("error", `Failed to create user account because: ${e.message}.`);
-        res.locals.redirect = "/signup/signup";
+        res.locals.redirect = "/signUp/signUp";
+        console.log("failed");
         next();
       }
     });
@@ -43,15 +44,18 @@ show: (req, res, next) => {
     User.findById(userId)
       .then(user => {
         res.locals.user = user;
+        console.log("finished show")
         next();
       })
       .catch(error => {
         console.log(`Error fetching user by ID: ${error.message}`);
         next(error);
       });
+
   },
 
 showView: (req, res) => {
+  console.log("finished show view")
   res.render("profile");
 },
 
@@ -125,7 +129,7 @@ update: (req, res, next) => {
 },
 
 authenticate: passport.authenticate("local", {
-  failureRedirect: "/login",
+  failureRedirect: "/loginPage",
   failureFlash: "Failed to login.",
   successRedirect: "/",
   successFlash: `Signed in as ${User.email} !`

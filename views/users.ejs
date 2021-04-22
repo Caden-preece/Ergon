@@ -4,11 +4,11 @@
 
 <div> 
     <img src="/images/homeSlider.jpg" alt="">
-</div> -->
+</div> 
 
 <!-- Changes after -->
 <wrapper>
-<h2 class="center">Users Table</h2>
+<h2 class="center">All Users</h2>
 
 
 </div>
@@ -25,9 +25,9 @@
     <% user.forEach(user => { %>
     <tr>
       <td>
-        <a href="<%= `/users/${user._id}` %>">
+        
           <%= user.email %> 
-        </a>
+        
       </td>
       <td>
           <% if(user.accountType === "Business"){ %> 

@@ -1,4 +1,7 @@
 "use strict";
+
+const { findById } = require("./models/user");
+
 //Import required libraries 
 const express = require("express"),
   app = express(),
@@ -16,7 +19,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
-  servicesController = require("./controllers/servicesController"),
+  servicesController = require("./controllers/servicescontroller"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
@@ -67,6 +70,9 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
+// app.use((req, res, next) => {
+//   currentBusiness = Business.findById(req.user.businessProfileId);
+// });
 
 //***** ROUTES ********
 // Routes that show before Login
@@ -79,11 +85,6 @@ app.get("/loginSignUp", homeController.signUpPage);
 app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
-// app.get("/services/construction", homeController.showconstruction);
-//app.get("/services/electrician", homeController.showelectrician);
-//app.get("/services/mechanic", homeController.showmechanic);
-//app.get("/services/plumbing", homeController.showplumbing);
-//app.get("/services/transportation", homeController.showtransportation)
 
 
 
@@ -100,30 +101,22 @@ app.post("/loginPage", usersController.authenticate);
 app.get("/logout", usersController.logout,  usersController.redirectView);
 
 //Show & Create Business Profile
-app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
-app.post("/users/createBusinessProfile", businessController.create, usersController.show, usersController.showView);;
+app.get("/users/createBusinessProfile/:id",businessController.showUser, businessController.getCreatePage);
+app.post("/users/createBusinessProfile", businessController.create, usersController.show, usersController.showView);
 
 
-
-// router.get("/users", usersController.index, usersController.indexView);
-// router.get("/users/new", usersController.new);
-// router.post("/users/create", usersController.validate, usersController.create, usersController.redirectView);
-//Routes that show after Login
 //Profile, Projects, invoices, inbox
-app.get("/:id", usersController.show, usersController.showView);
+app.get("/:id", usersController.show, businessController.showBusiness, usersController.showView);
 app.get("/myProjects", homeController.showProjects);
 app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
-//services controller
+//Services Controller 
 app.get("/services/construction", servicesController.index, servicesController.indexViewconstruction);
 app.get("/services/electrician", servicesController.index, servicesController.indexViewelectrician);
 app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
 app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
 app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
-
-//   app.get("/signin", homeController.signIn);
-//   app.get("/clients", homeController.showClients);
 
 // ************ Launch server **************
   app.listen(app.get("port"), () => {
