@@ -6,7 +6,7 @@
 h1 {
     font-size: 60px;
     text-align: center;
-    color:rgb(2, 2, 36);
+    color: rgb(2, 2, 36);
     background-color: rgb(247, 242, 242);
     padding-top: 15px;
     padding-bottom: 10px;
@@ -19,14 +19,11 @@ h2 {
     background-color: rgb(247, 242, 242);
     text-align: center;
     padding-bottom: 17px;
-    color: rgb(2, 2, 36);
+    color: rgb(16, 16, 141);
     font-size: 20px;
     font-weight: 100;
 
 }
-/* header {
-    background-color: black;
-} */
 
 nav{
     background-color: rgb(247, 242, 242);
@@ -52,12 +49,13 @@ nav a {
     text-decoration: none;
 }
 nav a:hover{
-    background-color: blue;
+    background-color:rgb(16, 16, 141) ;
 }
 .login-status {
     position: absolute;
     right: 10px;
     top: 5px;
+    text-decoration: none;
   }
   
   .log-out {
@@ -67,8 +65,10 @@ nav a:hover{
   
   .login-status .bubble {
     padding: 10px;
-    background: #c1ffc1;
+    background-color: rgb(16, 16, 141);
+    font-size: 19px;
   }
+
 body {
     background-color: rgb(247, 242, 242);
     text-align: center;
@@ -94,8 +94,11 @@ img {
     color: rgb(2, 2, 36);
     padding-top: 25px;
 }
+
 .already {
-    color:red;
+    color:blue;
+    padding-top: 15px;
+    font-size: 25px;
 }
 td {
     padding:25px
@@ -115,4 +118,27 @@ input, select {
 
 label {
     padding-right: 10%;
+}
+
+.signup{
+    text-align: left;
+}
+
+.form-signin-heading{
+    color: black;
+    padding-top: 25px;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    
+}
+
+.login-page {
+    text-align: left;
+    padding-left: 53px;
+    font-size: 43px;
+}
+
+.login-button{
+    font-size: 25px;
 }
