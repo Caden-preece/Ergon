@@ -33,7 +33,7 @@ exports.searchServices = (req,res) => {
   res.render("services");
 }
 exports.showSignIn = (req, res) => {
-    res.render("./signUp/login");
+    res.render("/signUp/login");
   }
 exports.signUpPage = (req, res) => {
   //res.render("loginSignUp");

@@ -19,6 +19,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
+  servicesController = require("./controllers/servicescontroller"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
@@ -84,17 +85,12 @@ app.get("/loginSignUp", homeController.signUpPage);
 app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
-app.get("/services/construction", homeController.showconstruction);
-app.get("/services/electrician", homeController.showelectrician);
-app.get("/services/mechanic", homeController.showmechanic);
-app.get("/services/plumbing", homeController.showplumbing);
-app.get("/services/transportation", homeController.showtransportation)
 
 
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
-app.post("/users", usersController.create, usersController.index, usersController.indexView);
+app.post("/users", usersController.create, usersController.redirectView);
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 app.get("/users/:id/edit", usersController.edit);
 app.put("/users/:id/update", usersController.update, usersController.redirectView);
@@ -115,8 +111,12 @@ app.get("/myProjects", homeController.showProjects);
 app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
-//   app.get("/signin", homeController.signIn);
-//   app.get("/clients", homeController.showClients);
+//Services Controller 
+app.get("/services/construction", servicesController.index, servicesController.indexViewconstruction);
+app.get("/services/electrician", servicesController.index, servicesController.indexViewelectrician);
+app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
+app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
+app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
 
 // ************ Launch server **************
   app.listen(app.get("port"), () => {
