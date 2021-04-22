@@ -1,10 +1,55 @@
 <img src="/images/homeSlider.jpg" alt="">
 <wrapper>
     <% business.forEach(business => { %>
-    <% if(business.service.includes("Construction")){ %> 
-      <p>
-        Hello
-        <%= business.companyName %>
-          </p>
+    <% if(business.service.includes("construction")){ %> 
+      <!-- <table class="table">
+        <tr>
+          <th>Company Name</th>
+          <td>
+            <%= business.companyName %>
+          </td>
+        </tr>
+        <tr>
+          <th>City</th>
+          <td>
+            <%= business.companyName %>
+          </td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td>
+            <%= buisness.state %>
+          </td>
+        </tr>
+        <tr>
+          <th>Zip Code</th>
+          <td>
+            <%= buisness.zipCode %>
+          </td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td>
+            <%= buisness.state %>
+          </td>
+        </tr>
+        <tr>
+          <th>Service</th>
+          <td>
+            <%= buisness.service %>
+          </td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td>
+            <%= buisness.state %>
+          </td>
+        </tr>
+        <tr>
+          <th>Listing</th>
+          <td>
+            <%= buisness.listing %>
+          </td>
+        </tr> -->
       <% }}) %>
     </wrapper>

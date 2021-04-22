@@ -24,7 +24,12 @@ var userSchema = new Schema (
       isAdmin: {
         type: Boolean,
         default: false
+      },
+      hasBusinessProfile:{
+        type: Boolean,
+        default: false
       }
+      
 
       }
 
