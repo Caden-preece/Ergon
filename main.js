@@ -19,7 +19,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
-  servicesController = require("./controllers/servicescontroller"),
+  servicesController = require("./controllers/servicesController"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
