@@ -80,10 +80,10 @@ app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
 // app.get("/services/construction", homeController.showconstruction);
-app.get("/services/electrician", homeController.showelectrician);
-app.get("/services/mechanic", homeController.showmechanic);
-app.get("/services/plumbing", homeController.showplumbing);
-app.get("/services/transportation", homeController.showtransportation)
+//app.get("/services/electrician", homeController.showelectrician);
+//app.get("/services/mechanic", homeController.showmechanic);
+//app.get("/services/plumbing", homeController.showplumbing);
+//app.get("/services/transportation", homeController.showtransportation)
 
 
 
@@ -97,6 +97,7 @@ app.put("/users/:id/update", usersController.update, usersController.redirectVie
 //Show Login and actually Log in
 app.get("/signUp/loginPage", homeController.showLogin);
 app.post("/loginPage", usersController.authenticate);
+app.get("/logout", usersController.logout,  usersController.redirectView);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
@@ -115,7 +116,11 @@ app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
 //services controller
-app.get("/services/construction", servicesController.index, servicesController.indexView);
+app.get("/services/construction", servicesController.index, servicesController.indexViewconstruction);
+app.get("/services/electrician", servicesController.index, servicesController.indexViewelectrician);
+app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
+app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
+app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
 
 //   app.get("/signin", homeController.signIn);
 //   app.get("/clients", homeController.showClients);

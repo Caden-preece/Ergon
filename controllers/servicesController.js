@@ -13,7 +13,19 @@ module.exports = {
         });
     },
   
-    indexView: (req, res) => {
-      res.render("services/construction");
-    }
+    indexViewconstruction: (req, res) => {
+        res.render("services/construction");
+      },
+    indexViewelectrician: (req, res) => {
+      res.render("services/electrician");
+    },
+    indexViewmechanic: (req, res) => {
+        res.render("services/mechanic");
+      },
+      indexViewplumbing: (req, res) => {
+        res.render("services/plumbing");
+      },
+      indexViewtransportation: (req, res) => {
+        res.render("services/transportation");
+      }
 }

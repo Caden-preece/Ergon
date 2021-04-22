@@ -1,8 +1,9 @@
-<img src="/images/homeSlider.jpg" alt="">
 <wrapper>
     <% business.forEach(business => { %>
-    <% if(business.service.includes("construction")){ %> 
-      <!-- <table class="table">
+    <% if(business.service.includes("Construction")){ %> 
+
+      
+      <table class="content-table">
         <tr>
           <th>Company Name</th>
           <td>
@@ -18,38 +19,33 @@
         <tr>
           <th>State</th>
           <td>
-            <%= buisness.state %>
+            <%= business.state %>
           </td>
         </tr>
         <tr>
           <th>Zip Code</th>
           <td>
-            <%= buisness.zipCode %>
+            <%= business.zipCode %>
           </td>
         </tr>
         <tr>
           <th>State</th>
           <td>
-            <%= buisness.state %>
+            <%= business.state %>
           </td>
         </tr>
         <tr>
           <th>Service</th>
           <td>
-            <%= buisness.service %>
+            <%= business.service %>
           </td>
         </tr>
         <tr>
           <th>State</th>
           <td>
-            <%= buisness.state %>
+            <%= business.state %>
           </td>
         </tr>
-        <tr>
-          <th>Listing</th>
-          <td>
-            <%= buisness.listing %>
-          </td>
-        </tr> -->
+        </table>
       <% }}) %>
     </wrapper>
