@@ -1,4 +1,7 @@
 "use strict";
+
+const { findById } = require("./models/user");
+
 //Import required libraries 
 const express = require("express"),
   app = express(),
@@ -66,6 +69,9 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
+// app.use((req, res, next) => {
+//   currentBusiness = Business.findById(req.user.businessProfileId);
+// });
 
 //***** ROUTES ********
 // Routes that show before Login
@@ -99,11 +105,12 @@ app.post("/loginPage", usersController.authenticate);
 app.get("/logout", usersController.logout,  usersController.redirectView);
 
 //Show & Create Business Profile
-app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);
-app.post("/users/createBusinessProfile", businessController.create, usersController.showView);;
+app.get("/users/createBusinessProfile/:id",businessController.showUser, businessController.getCreatePage);
+app.post("/users/createBusinessProfile", businessController.create, usersController.show, usersController.showView);
+
 
 //Profile, Projects, invoices, inbox
-app.get("/:id", usersController.show, usersController.showView);
+app.get("/:id", usersController.show, businessController.showBusiness, usersController.showView);
 app.get("/myProjects", homeController.showProjects);
 app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);

@@ -22,7 +22,7 @@ getCreatePage:
         },
 
 
-show: (req, res, next) => {
+showUser: (req, res, next) => {
     let userId = req.params.id;
     User.findById(userId)
       .then(user => {
@@ -35,6 +35,19 @@ show: (req, res, next) => {
       });
   },
 
+  showBusiness: (req, res, next) => {
+    let businessId = req.user.businessProfileId;
+    Business.findById(businessId)
+    .then(business => {
+      res.locals.business = business;
+      next();
+    })
+    .catch(error => {
+      console.log("business id error:");
+      next(error);
+    });
+  },
+
   showView: (req, res) => {
     res.render("/users/createBusinessProfile");
   },
@@ -42,6 +55,8 @@ show: (req, res, next) => {
   create: (req, res, next) => {
     Business.create(req.body).then((result) => {
         console.log(result);
+        User.findByIdAndUpdate(req.user._id,{businessProfileId:result._id}).then();
+        next();
     }).catch((err) => {
         next(err);
     });
@@ -52,7 +67,7 @@ madeBusinessProfile: (req, res, next) => {
     User.findById(userId)
       .then(user => {
         res.locals.user = user;
-        user.hasBusinessProfile = true;
+        currentUser.hasBusinessProfile = true;
         next();
       })
       .catch(error => {
@@ -81,6 +96,8 @@ madeBusinessProfile: (req, res, next) => {
 
   
 }
-
+//currentUser.businessProfileId.populate()
+//mongoose
+//currentUser.businessProfileId.populate it's a mongoose method
 
 

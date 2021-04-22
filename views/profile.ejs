@@ -3,25 +3,37 @@
 <div> 
     <!-- <img src="images/homeSlider.jpg" alt=""> -->
     <wrapper>
+      <h1>User Profile</h1>
         <table class="table">
             <tr>
               <th>Email</th>
               <td>
-                <%= user.email %>
+                <%= currentUser.email %>
               </td>
             </tr>
             <tr>
               <th> Account Type</th>
               <td>
-                <%= user.accountType %>
+                <%= currentUser.accountType %>
               </td>
             </tr>
           </table>
-          <% if (user.accountType === "Business" && !user.hasBusinessProfile) { %> 
-            <a href="<%= `/users/createBusinessProfile/${user._id}` %> ">
+          <% if (currentUser.accountType === "Business" && currentUser.businessProfileId == "undefined") { %> 
+            <a href="<%= `/users/createBusinessProfile/${currentUser._id}` %> ">
             <button>Create Business Profile</button>
             <% } %> 
           </a>
+          <% if (currentUser.businessProfileId != "undefined") { %> 
+          <br> 
+          <h1>
+            Business Profile
+          </h1>
+          
+
+
+          <% } %> 
+
+          
             
 
         
