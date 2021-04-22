@@ -17,7 +17,7 @@
               </td>
             </tr>
           </table>
-          <% if (user.accountType === "Business") { %> 
+          <% if (user.accountType === "Business" && !user.hasBusinessProfile) { %> 
             <a href="<%= `/users/createBusinessProfile/${user._id}` %> ">
             <button>Create Business Profile</button>
             <% } %> 

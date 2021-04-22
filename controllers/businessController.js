@@ -46,6 +46,21 @@ show: (req, res, next) => {
         next(err);
     });
 },
+
+madeBusinessProfile: (req, res, next) => {
+  let userId = req.params.id;
+    User.findById(userId)
+      .then(user => {
+        res.locals.user = user;
+        user.hasBusinessProfile = true;
+        next();
+      })
+      .catch(error => {
+        console.log(`Error fetching user by ID: ${error.message}`);
+        next(error);
+      });
+
+}
   
   // (req, res, next) => {
 

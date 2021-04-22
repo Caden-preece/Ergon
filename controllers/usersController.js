@@ -43,15 +43,18 @@ show: (req, res, next) => {
     User.findById(userId)
       .then(user => {
         res.locals.user = user;
+        console.log("finished show")
         next();
       })
       .catch(error => {
         console.log(`Error fetching user by ID: ${error.message}`);
         next(error);
       });
+
   },
 
 showView: (req, res) => {
+  console.log("finished show view")
   res.render("profile");
 },
 
