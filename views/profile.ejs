@@ -18,12 +18,12 @@
               </td>
             </tr>
           </table>
-          <% if (currentUser.accountType === "Business" && currentUser.businessProfileId == "undefined") { %> 
+          <% if (currentUser.accountType === "Business" && currentUser.businessProfileId ) { %> 
             <a href="<%= `/users/createBusinessProfile/${currentUser._id}` %> ">
             <button>Create Business Profile</button>
             <% } %> 
           </a>
-          <% if (currentUser.businessProfileId != "undefined") { %> 
+          <% if (currentUser.businessProfileId) { %> 
           <br> 
           <h1>
             Business Profile

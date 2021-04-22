@@ -28,7 +28,7 @@ var userSchema = new Schema (
       businessProfileId:{
         type: Schema.Types.ObjectId,
         ref: "Business",
-        default: undefined
+        default: 1
       },
       
 
