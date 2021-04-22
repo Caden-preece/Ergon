@@ -26,7 +26,7 @@ module.exports = {
       } else {
         //req.flash("error", `Failed to create user account because: ${e.message}.`);
         res.locals.redirect = "/signUp/signUp";
-        console.log("failed");
+        console.log(e);
         next();
       }
     });
