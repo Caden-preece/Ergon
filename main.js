@@ -19,6 +19,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
+  servicesController = require("./controllers/servicesController"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
@@ -84,11 +85,11 @@ app.get("/loginSignUp", homeController.signUpPage);
 app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
-app.get("/services/construction", homeController.showconstruction);
-app.get("/services/electrician", homeController.showelectrician);
-app.get("/services/mechanic", homeController.showmechanic);
-app.get("/services/plumbing", homeController.showplumbing);
-app.get("/services/transportation", homeController.showtransportation)
+// app.get("/services/construction", homeController.showconstruction);
+//app.get("/services/electrician", homeController.showelectrician);
+//app.get("/services/mechanic", homeController.showmechanic);
+//app.get("/services/plumbing", homeController.showplumbing);
+//app.get("/services/transportation", homeController.showtransportation)
 
 
 
@@ -114,6 +115,13 @@ app.get("/:id", usersController.show, businessController.showBusiness, usersCont
 app.get("/myProjects", homeController.showProjects);
 app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
+
+//services controller
+app.get("/services/construction", servicesController.index, servicesController.indexViewconstruction);
+app.get("/services/electrician", servicesController.index, servicesController.indexViewelectrician);
+app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
+app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
+app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
 
 //   app.get("/signin", homeController.signIn);
 //   app.get("/clients", homeController.showClients);
