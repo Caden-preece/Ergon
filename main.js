@@ -89,7 +89,7 @@ app.get("/users", usersController.index, usersController.indexView);
 
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
-app.post("/users", usersController.create, usersController.index, usersController.indexView);
+app.post("/users", usersController.create, usersController.redirectView);
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 app.get("/users/:id/edit", usersController.edit);
 app.put("/users/:id/update", usersController.update, usersController.redirectView);
