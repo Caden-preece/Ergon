@@ -96,6 +96,7 @@ app.put("/users/:id/update", usersController.update, usersController.redirectVie
 //Show Login and actually Log in
 app.get("/signUp/loginPage", homeController.showLogin);
 app.post("/loginPage", usersController.authenticate);
+app.get("/logout", usersController.logout,  usersController.redirectView);
 
 //Show & Create Business Profile
 app.get("/users/createBusinessProfile/:id",businessController.show, businessController.getCreatePage);

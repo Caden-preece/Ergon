@@ -21,7 +21,7 @@
                     <li><a href="#">Coming Soon</a></li>
                 </ul> -->
 
-            <a href="/login">Login/Sign Up</a>&nbsp;
+            <!-- <a href="/login">Login/Sign Up</a>&nbsp; -->
             <% if (currentUser) { %> 
                 <% if (currentUser.isAdmin) { %> 
             <a href="/users">Users</a>
@@ -33,7 +33,27 @@
             <li><a href="profile">Profile</a></li>
             <li><a href="inbox">Inbox</a></li>
             <li><a href="invoices">Invoices</a></li> -->
-    </nav>
+        </nav>
+            <div class="login-status">
+                <% if (loggedIn) { %>
+                <div class="bubble logged-in">
+                    Logged in as <a href="/profile">
+                        <%= currentUser.email %></a>
+                </div>
+                <div class="log-out">
+                    <a href="/logout">Log out</a>
+                </div>
+                <%} else {%>
+                <div class="bubble log-in">
+                    <a href="/signUp/signUp">Create Account</a>
+                </div>
+                <% } %>
+            </div>
+    
+
+   
+        
+    
 
     <%- body %>
 </body>
