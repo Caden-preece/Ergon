@@ -2,11 +2,18 @@
     margin: 0;
     padding: 0;
 }
-
+img {
+    height: 300px;
+    width: 500px;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 15px;
+    float: left;
+}
 h1 {
     font-size: 60px;
     text-align: center;
-    color:rgb(2, 2, 36);
+    color: rgb(2, 2, 36);
     background-color: rgb(247, 242, 242);
     padding-top: 15px;
     padding-bottom: 10px;
@@ -19,14 +26,11 @@ h2 {
     background-color: rgb(247, 242, 242);
     text-align: center;
     padding-bottom: 17px;
-    color: rgb(2, 2, 36);
+    color: rgb(16, 16, 141);
     font-size: 20px;
     font-weight: 100;
 
 }
-/* header {
-    background-color: black;
-} */
 
 nav{
     background-color: rgb(247, 242, 242);
@@ -52,34 +56,44 @@ nav a {
     text-decoration: none;
 }
 nav a:hover{
-    background-color: blue;
+    background-color:rgb(16, 16, 141) ;
 }
 .login-status {
     position: absolute;
     right: 10px;
     top: 5px;
+    text-decoration: none;
   }
   
   .log-out {
     position: absolute;
     right: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 19px;
+  }
+  .log-out a:visited {
+      color: black;
   }
   
   .login-status .bubble {
     padding: 10px;
-    background: #c1ffc1;
+    font-size: 19px;
+    color: black;
+    background-color: rgb(83, 239, 250);
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
   }
+
+  .login-status .bubble a:visited {
+      color: black;
+  }
+
 body {
     background-color: rgb(247, 242, 242);
     text-align: center;
 }
-img {
-    height: 200px;
-    width: 500px;
-    padding-left: 25px;
-    padding-top: 25px;
-    float: left;
-}
+
 #wrapper{
     font-family: 'Roboto', sans-serif;
     padding-top: 50px;
@@ -93,9 +107,30 @@ img {
 #about {
     color: rgb(2, 2, 36);
     padding-top: 25px;
+    word-wrap: normal;
+    font-size: 27px;
+    padding-left: 17px;
+    padding-right: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
+#services {
+    color: rgb(2, 2, 36);
+    padding-top: 25px;
+    word-wrap: normal;
+    font-size: 27px;
+    padding-left: 17px;
+    padding-right: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+
+
 .already {
-    color:red;
+    color:blue;
+    padding-top: 15px;
+    font-size: 25px;
 }
 td {
     padding:25px
@@ -115,4 +150,30 @@ input, select {
 
 label {
     padding-right: 10%;
+}
+
+.signup{
+    text-align: left;
+}
+
+.form-signin-heading{
+    color: black;
+    padding-top: 25px;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    
+}
+
+.login-page {
+    text-align: left;
+    padding-left: 53px;
+    color: blue;
+    
+}
+
+.login-button{
+    font-size: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
