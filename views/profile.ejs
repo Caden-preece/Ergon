@@ -17,11 +17,13 @@
               </td>
             </tr>
           </table>
-          <% if (user.accountType == "Business") { %> 
+          <% if (user.accountType === "Business") { %> 
             <a href="<%= `/users/createBusinessProfile/${user._id}` %> ">
-            <button href="<%= `/users/createBusinessProfile/${user._id}` %> ">Create Business Profile</button>
-          </a>
+            <button>Create Business Profile</button>
             <% } %> 
+          </a>
+            
+
         
     </wrapper>
 </div>
