@@ -19,7 +19,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
-  servicesController = require("./controllers/servicescontroller"),
+  servicesController = require("./controllers/servicesController"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
@@ -91,7 +91,10 @@ app.get("/users", usersController.index, usersController.indexView);
 //Show & Create Users
 app.get("/signUp/signUp", homeController.signUpPage);
 app.post("/users", usersController.create, usersController.redirectView);
+<<<<<<< HEAD
 // app.post("/users", usersController.create, usersController.index, usersController.indexView);
+=======
+>>>>>>> 815eada42a13ead9ef8e5be40fe128a197270baf
 app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 app.get("/users/:id/edit", usersController.edit);
 app.put("/users/:id/update", usersController.update, usersController.redirectView);
