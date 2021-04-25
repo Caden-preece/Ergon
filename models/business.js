@@ -40,7 +40,7 @@ var businessSchema = new Schema (
         type: Array,
 
       },
-      listing: {
+      biography: {
         type: String,
       }
 
