@@ -42,6 +42,16 @@ var businessSchema = new Schema (
       },
       biography: {
         type: String,
+      },
+      review: {
+        rating: {
+          type: Number,
+          max: 5,
+          min: 0,
+        comment: {
+          type: String,
+        }
+        }
       }
 
     }

@@ -18,12 +18,9 @@
               </td>
             </tr>
           </table>
-          <% if (currentUser.accountType === "Business" && currentUser.businessProfileId ) { %> 
             <a href="<%= `/users/createBusinessProfile/${currentUser._id}` %> ">
             <button>Create Business Profile</button>
-            <% } %> 
-          </a>
-          <% if (currentUser.businessProfileId) { %> 
+          </a> 
           <br> 
           <h1>
             Business Profile
@@ -31,7 +28,6 @@
           
 
 
-          <% } %> 
 
           
             

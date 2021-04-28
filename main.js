@@ -20,6 +20,7 @@ const express = require("express"),
   usersController = require("./controllers/usersController"),
   businessController = require("./controllers/businessController"),
   servicesController = require("./controllers/servicesController"),
+  reviewController = require("./controllers/reviewController"),
 //MODELS
   User = require("./models/user"),
   Business = require("./models/business");
@@ -117,6 +118,27 @@ app.get("/services/electrician", servicesController.index, servicesController.in
 app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
 app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
 app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
+
+// View Biography/Review/Chat for each service
+app.get("/services/construction/:id", reviewController.showBiography);
+app.get("/services/construction/review/:id", reviewController.showReview);
+app.get("/services/construction/chat/:id", reviewController.showChat);
+
+app.get("/services/electrician/:id", reviewController.showBiography);
+app.get("/services/electrician/review/:id", reviewController.showReview);
+app.get("/services/electrician/chat:id", reviewController.showChat);
+
+app.get("/services/mechanic/:id", reviewController.showBiography);
+app.get("/services/mechanic/review/:id", reviewController.showReview);
+app.get("/services/mechanic/chat/:id", reviewController.showChat);
+
+app.get("/services/plumbing/:id", reviewController.showBiography);
+app.get("/services/plumbing/review/:id", reviewController.showReview);
+app.get("/services/plumbing/chat/:id", reviewController.showChat);
+
+app.get("/services/transportation/:id", reviewController.showBiography);
+app.get("/services/transportation/review/:id", reviewController.showReview);
+app.get("/services/transportation/chat/:id", reviewController.showChat);
 
 // ************ Launch server **************
   app.listen(app.get("port"), () => {

@@ -1,47 +1,49 @@
 <wrapper>
     <% business.forEach(business => { %>
     <% if(business.service.includes("Transportation")){ %> 
+
       <table class="content-table">
         <tr>
-          <th>Company Name</th>
+          <th>Company Name:</th>
           <td>
             <%= business.companyName %>
           </td>
         </tr>
         <tr>
-          <th>City</th>
+          <th>City:</th>
           <td>
-            <%= business.companyName %>
+            <%= business.city %>
           </td>
         </tr>
         <tr>
-          <th>State</th>
+          <th>State:</th>
           <td>
             <%= business.state %>
           </td>
         </tr>
         <tr>
-          <th>Zip Code</th>
+          <th>Zip Code:</th>
           <td>
             <%= business.zipCode %>
           </td>
         </tr>
         <tr>
-          <th>State</th>
+          <th>To View Biography</th>
           <td>
-            <%= business.state %>
+            <a href="<%= `/services/construction/${business._id}` %>">Click Here </a>
           </td>
         </tr>
         <tr>
-          <th>Service</th>
+          <th>To Send Review of Service</th>
           <td>
-            <%= business.service %>
+            <a href= "<%= `/services/construction/review/${business._id}` %>">Click Here </a>
+            <%= business.review.rating %>
           </td>
         </tr>
         <tr>
-          <th>State</th>
+          <th>To Send Service Request</th>
           <td>
-            <%= business.state %>
+            <a href="<%= `/services/construction/chat/${business._id}` %>">Click Here</a>
           </td>
         </tr>
         </table>

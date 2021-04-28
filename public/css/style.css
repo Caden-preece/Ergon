@@ -191,13 +191,21 @@ label {
     color:chartreuse;
     text-align: left;
     font-weight: bold;
+    margin-right: 5%;
+}
+
+.content-table {
+    float: left;
+    margin-left: 5%;
+    background-color: #DCDCDC;
 }
 
 .content-table th,
 .content-table td {
-    padding: 12px 15px
+    padding: 12px 15px;
     font-size: 20px;
     padding-left: 15px;
     padding-right: 15px;
-
+    float: left;
+    border: none;
 }
