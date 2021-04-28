@@ -1,5 +1,4 @@
-<div> 
-    <img src="images/homeSlider.jpg" alt="">
+<!-- <div> 
     <wrapper>
         <li><a href="/services/construction">Construction</a></li>
         <li><a href="/services/electrician">Electrician</a></li>
@@ -7,4 +6,16 @@
         <li><a href="/services/plumbing">Plumbing</a></li>
         <li><a href="/services/transportation">Transportation</a></li>
     </wrapper>
-</div>
+</div> -->
+
+<h3>Services</h3>
+<ul class="services">
+    <% services.forEach((service) => { %>
+        <li>
+            <a href="/services/<%= service.title %>">
+                <img src="images/<%= service.imageUrl %>" alt="">
+                <%=service.title%>
+            </a>  
+        </li>
+    <%})%>
+</ul>

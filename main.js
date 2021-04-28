@@ -80,13 +80,12 @@ app.use((req, res, next) => {
 // Index, About, Services, Sign In
 app.get("/", homeController.index),
 app.get("/about", homeController.about),
-app.get("/services", homeController.searchServices),
+app.get("/services", servicesController.getServices, homeController.searchServices),
 app.get("/login", homeController.showSignIn),
 app.get("/loginSignUp", homeController.signUpPage);
 app.get("/users", usersController.index, usersController.indexView);
 
 //begining services
-
 
 
 //Show & Create Users
@@ -113,9 +112,10 @@ app.get("/invoices", homeController.showInvoices);
 app.get("/inbox", homeController.showInbox);
 
 //Services Controller 
+
 app.get("/services/construction", servicesController.index, servicesController.indexViewconstruction);
-app.get("/services/electrician", servicesController.index, servicesController.indexViewelectrician);
-app.get("/services/mechanic", servicesController.index, servicesController.indexViewmechanic);
+app.get("/services/electrical", servicesController.index, servicesController.indexViewelectrician);
+app.get("/services/mechanics", servicesController.index, servicesController.indexViewmechanic);
 app.get("/services/plumbing", servicesController.index, servicesController.indexViewplumbing);
 app.get("/services/transportation", servicesController.index, servicesController.indexViewtransportation);
 
